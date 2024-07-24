@@ -1,0 +1,1 @@
+export const COCKTAIL_CODE_BY_DEFAULT = 'margarita';
