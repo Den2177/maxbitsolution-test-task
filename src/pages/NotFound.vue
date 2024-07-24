@@ -2,6 +2,7 @@
 import {useRouter} from "vue-router";
 import {ERouteName} from "@/app/providers/router/types/ERouteName";
 import {COCKTAIL_CODE_BY_DEFAULT} from "@/entities/cocktail/const/defaultCocktailCode";
+import UiButton from "@/shared/ui/UiButton.vue";
 
 const router = useRouter();
 function toMainPage() {
@@ -14,7 +15,7 @@ function toMainPage() {
     <div class="not-found-card">
       <img loading="lazy" class="not-found-gif" src="https://cdn.dribbble.com/users/1175431/screenshots/6188233/media/507f015a7efd81cec270faf9c4f1aabd.gif" alt="not found">
       <div class="text">К сожалению не нашел страницу для вас.<br> Однако могу предложить внезапный анекдот: <br>Поймал старик золотую рыбку. — Отпусти меня, старче, три желания исполню! — Зашибись! — сказал старик. И зашиблась бедная рыбка, так и не исполнив два другие желания.</div>
-      <button class="btn" @click="toMainPage">На главную</button>
+      <ui-button @click="toMainPage">На главную</ui-button>
     </div>
   </div>
 </template>

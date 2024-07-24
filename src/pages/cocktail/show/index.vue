@@ -7,19 +7,22 @@ import type {IDrink} from "@/entities/cocktail/model/IDrink";
 import DrinkProperties from '@/entities/cocktail/ui/drink-properties/index.vue';
 import DrinkInstructions from '@/entities/cocktail/ui/drink-instructions/index.vue';
 import DrinkIngredients from '@/entities/cocktail/ui/drink-ingredients/index.vue';
+import {useRouter} from "vue-router";
+import {ERouteName} from "@/app/providers/router/types/ERouteName";
 
 const { cocktailCode, cocktailId } = useCurrentCocktail();
 const cocktailsListStore = useCocktailsListStore();
 const { cocktails } = storeToRefs(cocktailsListStore);
 const { getCocktailsByCode } = cocktailsListStore;
 const drink = shallowRef<IDrink>();
+const router = useRouter();
 
 async function init() {
   await getCocktailsByCode(cocktailCode);
   const findedDrink = cocktails.value[cocktailCode].find(item => item.idDrink === cocktailId);
 
   if (!findedDrink) {
-    // redirect to 404 handler
+    router.replace({name: ERouteName.NOT_FOUND})
     return;
   }
 
