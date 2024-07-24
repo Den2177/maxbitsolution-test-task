@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {IDrink} from "@/entities/cocktail/model/IDrink";
+import type {IDrink} from "@/entities/cocktail/model/IDrink";
 import {computed} from "vue";
 
 const props = defineProps<{
